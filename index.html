@@ -15,7 +15,12 @@
     <script>window["_GOOG_TRANS_EXT_VER"] = "1";</script>
 
     <script type="text/javascript">
-      window.location = "http://publimetro.band.com.br/pdf/20111110_metrosaopaulo.pdf";
+      var today = new Date();
+      var y = '' + today.getFullYear();
+      var m = '' + today.getMonth();
+      var d = '' + today.getDate();
+      console.log(y+m+d);
+      window.location = "http://publimetro.band.com.br/pdf/"+y+m+d+"_metrosaopaulo.pdf";
     </script>
 
   </head>
