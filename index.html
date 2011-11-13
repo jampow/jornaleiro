@@ -2,29 +2,63 @@
 <html>
   <head>
 
-    <title>Publi Metro Hoje</title>
+    <title>Jornal de Hoje</title>
     <meta charset="utf-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
-    <meta name="apple-mobile-web-app-capable" content="no">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style type="text/css" media="screen">@import "jqtouch/jqtouch.css";</style>
+    <style type="text/css" media="screen">@import "themes/apple/theme.css";</style>
+    <script src="jqtouch/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+      var jQT = $.jQTouch({
+          addGlossToIcon: true,
+          icon          : 'images/icon.png',
+          startupScreen : 'images/startup.png',
+          preloadImages: [
+            'themes/apple/img/toolButton.png'
+          ]
+      });
 
-    <link rel="apple-touch-icon-precomposed" href="images/icon.png">
-    <link rel="apple-touch-startup-image" href="images/startup2.png">
+      $(function(){
+        $('#metro' ).attr('href', metroUrl );
+        $('#destak').attr('href', destakUrl);
+      });
 
-    <script>window["_GOOG_TRANS_EXT_VER"] = "1";</script>
-
-    <script type="text/javascript">
       var today = new Date();
       var y = '' + today.getFullYear();
-      var m = '' + today.getMonth();
+      var m = '' + (today.getMonth() + 1);
       var d = '' + today.getDate();
-      console.log(y+m+d);
-      window.location = "http://publimetro.band.com.br/pdf/"+y+m+d+"_metrosaopaulo.pdf";
+      var metroUrl  = "http://publimetro.band.com.br/pdf/"+y+m+d+"_metrosaopaulo.pdf";
+      var destakUrl = "http://www.destakjornal.com.br/pdfedition/"+y+m+d+"21.pdf"
     </script>
 
   </head>
   <body>
+
+    <div id="jqt">
+      <div id="home" selected="true" class="edgetoedge">
+        <div class="toolbar">
+          <h1>Jornais</h1>
+          <a href="#about" class="button flip">Sobre</a>
+        </div>
+
+        <h2>Selecione o jornal</h2>
+        <ul class="rounded">
+          <li class="arrow"><a href="#" target="_blank" id="metro" >Metro</a></li>
+          <li class="arrow"><a href="#" target="_blank" id="destak">Destak</a></li>
+        </ul>
+      </div>
+
+      <div id="about" class="edgetoedge">
+        <div class="toolbar">
+          <h1>Sobre</h1>
+          <a href="#home" class="button leftButton flip">Voltar</a>
+        </div>
+        <ul class="rounded">
+          <li><a href="http://blog.jampow.com.br" target="_blank">Blog Jam-Pow!</a></li>
+        </ul>
+      </div>
+    </div>
 
   </body>
 </html>
