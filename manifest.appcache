@@ -30,6 +30,9 @@ CACHE:
 /jqtouch/jqtouch.js
 /jqtouch/jquery-1.4.2.min.js
 
+#html
+/index.html
+
 NETWORK:
 
 FALLBACK:
