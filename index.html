@@ -39,25 +39,42 @@
       <div id="home" selected="true" class="edgetoedge">
         <div class="toolbar">
           <h1>Jornais</h1>
-          <a href="#about" class="button flip">Sobre</a>
+          <!--a href="#settings" class="button leftButton flip">Configurações</a'-->
+          <a href="#about"    class="button slideup"        >Sobre        </a>
         </div>
 
         <h2>Selecione o jornal</h2>
-        <ul class="rounded">
-          <li class="arrow"><a href="#" target="_blank" id="metro" >Metro</a></li>
-          <li class="arrow"><a href="#" target="_blank" id="destak">Destak</a></li>
+        <ul class="individual">
+          <li class="arrow">
+            <a href="#" target="_blank" id="metro" >
+              <image src="images/logo_metro_p.png"><br />Metro
+            </a>
+          </li>
+          <li class="arrow">
+            <a href="#" target="_blank" id="destak">
+              <image src="images/logo_destak_p.png"><br />Destak
+            </a>
+          </li>
         </ul>
       </div>
 
       <div id="about" class="edgetoedge">
         <div class="toolbar">
           <h1>Sobre</h1>
-          <a href="#home" class="button leftButton flip">Voltar</a>
+          <a href="#home" class="button leftButton back slidedown">Voltar</a>
         </div>
         <ul class="rounded">
           <li><a href="http://blog.jampow.com.br" target="_blank">Blog Jam-Pow!</a></li>
         </ul>
       </div>
+
+      <div id="settings" class="edgetoedge">
+        <div class="toolbar">
+          <h1>Configurações</h1>
+          <a href="#home" class="button leftButton back flip">Voltar</a>
+        </div>
+      </div>
+
     </div>
 
   </body>
