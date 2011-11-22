@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#version 0.5
+#version 0.6
 
 CACHE:
 #images
@@ -24,6 +24,8 @@ themes/apple/img/toolButton.png
 #themes/apple/img/whiteButton.png
 images/logo_metro_p.png
 images/logo_destak_p.png
+images/logo_metro_disabled_p.png
+images/logo_destak_disabled_p.png
 
 #css
 javascripts/jqtouch/jqtouch.css

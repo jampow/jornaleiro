@@ -11,6 +11,9 @@
     <script src="javascripts/jqtouch/jqtouch.js"          type="application/x-javascript" charset="utf-8"></script>
     <script src="javascripts/application.js"              type="text/javascript"          charset="utf-8"></script>
 
+    <style type="text/css">
+      .error li {text-align:center; color: #a00 !important;}
+    </style>
   </head>
   <body>
 
@@ -23,7 +26,7 @@
         </div>
 
         <h2>Selecione o jornal</h2>
-        <ul class="individual">
+        <ul class="individual enabled">
           <li class="arrow">
             <a href="#" target="_blank" id="metro" >
               <image src="images/logo_metro_p.png"><br />Metro
@@ -33,6 +36,20 @@
             <a href="#" target="_blank" id="destak">
               <image src="images/logo_destak_p.png"><br />Destak
             </a>
+          </li>
+        </ul>
+
+
+        <ul class="edit rounded error disabled">
+          <li>Você não está conectado.</li>
+        </ul>
+
+        <ul class="individual disabled">
+          <li class="arrow">
+            <image src="images/logo_metro_disable_p.png"><br />Metro
+          </li>
+          <li class="arrow">
+            <image src="images/logo_destak_disable_p.png"><br />Destak
           </li>
         </ul>
       </div>
