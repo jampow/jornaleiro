@@ -26,7 +26,7 @@ images/logo_metro_p.png
 images/logo_destak_p.png
 
 #css
-jqtouch/jqtouch.css
+javascripts/jqtouch/jqtouch.css
 themes/apple/theme.css
 
 #js
