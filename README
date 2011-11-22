@@ -4,6 +4,5 @@ aparelho mobile.
 Adicione à tela inicial de seu mobile
 
 TODO
-- Adicionar verificação de conexão. Mostrar mensagem e esconder botões caso
-  esteja sem conexão
+- Fazer validação de disponibilidade do link
 
