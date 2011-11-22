@@ -5,52 +5,11 @@
     <title>Jornaleiro</title>
     <meta charset="utf-8" />
 
-    <style type="text/css" media="screen">@import "jqtouch/jqtouch.css";</style>
+    <style type="text/css" media="screen">@import "javascripts/jqtouch/jqtouch.css";</style>
     <style type="text/css" media="screen">@import "themes/apple/theme.css";</style>
-    <script src="jqtouch/jquery-1.4.2.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="jqtouch/jqtouch.js" type="application/x-javascript" charset="utf-8"></script>
-    <script type="text/javascript" charset="utf-8">
-      var jQT = $.jQTouch({
-          addGlossToIcon: true,
-          icon          : '/images/logo_g.png',
-          startupScreen : '/images/startup.png',
-          preloadImages: [
-          //  'themes/apple/img/activeButton.png',
-            'themes/apple/img/backButton.png',
-          //  'themes/apple/img/cancel.png',
-          //  'themes/apple/img/chevron.png',
-          //  'themes/apple/img/grayButton.png',
-          //  'themes/apple/img/greenButton.png',
-          //  'themes/apple/img/listArrowSel.png',
-          //  'themes/apple/img/listGroup.png',
-          //  'themes/apple/img/loading.gif',
-          //  'themes/apple/img/on_off.png',
-            'themes/apple/img/pinstripes.png',
-          //  'themes/apple/img/redButton.png',
-          //  'themes/apple/img/selection.png',
-          //  'themes/apple/img/thumb.png',
-          //  'themes/apple/img/toggleOn.png',
-          //  'themes/apple/img/toggle.png',
-            'themes/apple/img/toolbar.png',
-            'themes/apple/img/toolButton.png',
-          //  'themes/apple/img/whiteButton.png',
-            'images/logo_metro_p.png',
-            'images/logo_destak_p.png'
-          ]
-      });
-
-      $(function(){
-        $('#metro' ).attr('href', metroUrl );
-        $('#destak').attr('href', destakUrl);
-      });
-
-      var today = new Date();
-      var y = '' + today.getFullYear();
-      var m = '' + (today.getMonth() + 1);
-      var d = '' + today.getDate();
-      var metroUrl  = "http://publimetro.band.com.br/pdf/"+y+m+d+"_metrosaopaulo.pdf";
-      var destakUrl = "http://www.destakjornal.com.br/pdfedition/"+y+m+d+"21.pdf"
-    </script>
+    <script src="javascripts/jqtouch/jquery-1.4.2.min.js" type="text/javascript"          charset="utf-8"></script>
+    <script src="javascripts/jqtouch/jqtouch.js"          type="application/x-javascript" charset="utf-8"></script>
+    <script src="javascripts/application.js"              type="text/javascript"          charset="utf-8"></script>
 
   </head>
   <body>
@@ -59,7 +18,7 @@
       <div id="home" selected="true" class="edgetoedge">
         <div class="toolbar">
           <h1>Jornais</h1>
-          <!--a href="#settings" class="button leftButton flip">Configurações</a'-->
+          <a href="#settings" class="button leftButton flip">Configurações</a>
           <a href="#about"    class="button slideup"        >Sobre        </a>
         </div>
 
@@ -84,6 +43,7 @@
           <a href="#home" class="button leftButton back slidedown">Voltar</a>
         </div>
         <ul class="rounded">
+          <li>Versão 2.0</li>
           <li><a href="http://blog.jampow.com.br" target="_blank">Blog Jam-Pow!</a></li>
         </ul>
       </div>
@@ -93,6 +53,44 @@
           <h1>Configurações</h1>
           <a href="#home" class="button leftButton back flip">Voltar</a>
         </div>
+        <form>
+          <h2>Metro</h2>
+          <ul class="edit rouded">
+            <li>Selecione a cidade</li>
+            <li>
+              <select name="metro" id="metro_local">
+                <optiongroup label="Cidades">
+                  <option value="abc"        >ABC           </option>
+                  <option value="bh"         >Belo Horizonte</option>
+                  <option value="campinas"   >Campinas      </option>
+                  <option value="curitiba"   >Curitiba      </option>
+                  <option value="portoalegre">Porto Alegre  </option>
+                  <option value="rio"        >Rio de Janeiro</option>
+                  <option value="santos"     >Santos        </option>
+                  <option value="saopaulo"   >São Paulo     </option>
+                </optiongroup>
+
+                <optiongroup label="Especiais">
+                  <option value="motor"   >Motor   </option>
+                  <option value="quadrado">Quadrado</option>
+                </optiongroup>
+              </select>
+            </li>
+          </ul>
+
+
+          <h2>Destak</h2>
+          <ul class="edit rouded">
+            <li>Selecione a cidade</li>
+            <li>
+              <select name="destak" id="destak_local">
+                <option value="41">Brasília            </option>
+                <option value="21">Campinas / São Paulo</option>
+                <option value="31">Rio de Janeiro      </option>
+              </select>
+            </li>
+          </ul>
+        </form>
       </div>
 
     </div>
