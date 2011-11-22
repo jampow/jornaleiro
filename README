@@ -4,8 +4,6 @@ aparelho mobile.
 Adicione à tela inicial de seu mobile
 
 TODO
-- Adicionar opções para outros estados
-- Melhorar interface
-- ApplicationCache
-- storage das opções
+- Adicionar verificação de conexão. Mostrar mensagem e esconder botões caso
+  esteja sem conexão
 
