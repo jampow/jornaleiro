@@ -63,7 +63,6 @@
           for (i=0; i<=localStorage.length-1; i++) {
             key = localStorage.key(i);
             val = local.get(key);
-            console.log(key + ' - ' + val);
             $('option[value='+val+']', '#'+key+'_local').attr('selected','selected');
           }
         },
