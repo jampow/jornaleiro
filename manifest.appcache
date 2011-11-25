@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#revision 10
+#revision 11
 
 CACHE:
 #images
@@ -23,6 +23,7 @@ themes/apple/img/toolbar.png
 themes/apple/img/toolButton.png
 #themes/apple/img/whiteButton.png
 images/startup.png
+images/gear.png
 images/logo_metro_p.png
 images/logo_destak_p.png
 images/logo_metro_disabled_p.png

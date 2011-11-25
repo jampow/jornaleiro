@@ -13,6 +13,7 @@
 
     <style type="text/css">
       .error li {text-align:center; color: #a00 !important;}
+      #gear {position: relative; top: 3px;}
     </style>
   </head>
   <body>
@@ -20,9 +21,11 @@
     <div id="jqt">
       <div id="home" selected="true" class="edgetoedge">
         <div class="toolbar">
-          <h1>Jornais</h1>
-          <a href="#settings" class="button leftButton flip">Configurações</a>
-          <a href="#about"    class="button slideup"        >Sobre        </a>
+          <h1>Jornaleiro</h1>
+          <a href="#settings" class="button leftButton flip">
+            <img src="/images/gear.png" alt="Configurações" id="gear"/>
+          </a>
+          <a href="#about" class="button slideup">Sobre</a>
         </div>
 
         <h2>Selecione o jornal</h2>
@@ -60,7 +63,7 @@
           <a href="#home" class="button leftButton back slidedown">Voltar</a>
         </div>
         <ul class="rounded">
-          <li>Versão 2.2</li>
+          <li>Versão 2.3</li>
           <li><a href="http://blog.jampow.com.br" target="_blank">Blog Jam-Pow!</a></li>
         </ul>
       </div>
