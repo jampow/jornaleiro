@@ -23,7 +23,8 @@
             'themes/apple/img/toolButton.png',
           //  'themes/apple/img/whiteButton.png',
             'images/logo_metro_p.png',
-            'images/logo_destak_p.png'
+            'images/logo_destak_p.png',
+            'images/gear.png'
           ]
       });
 
@@ -61,10 +62,18 @@
         enabledHide:  true,
         disabledHide: false,
         setInitialValues: function(){
+          init.verifyConfig();
           for (i=0; i<=localStorage.length-1; i++) {
             key = localStorage.key(i);
             val = local.get(key);
             $('option[value='+val+']', '#'+key+'_local').attr('selected','selected');
+          }
+        },
+        verifyConfig: function(){
+          if (localStorage.length == 0){
+            $('a[href=#settings]:first').click();
+            local.set('metro' , 'saopaulo');
+            local.set('destak', '21'      );
           }
         },
         onLineStatus: function(){
