@@ -43,6 +43,7 @@
           var y = '' + today.getFullYear();
           var m = '' + (today.getMonth() + 1);
           var d = '' + today.getDate();
+          d = (d.length == 1) ? '0' + d : d
           return y+m+d;
         }
       };
