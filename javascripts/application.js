@@ -29,7 +29,7 @@ var jQT = $.jQTouch({
 });
 
 var storage = {
-  version: "3.0.0",
+  version: "3.0.1",
   get: function(journal) {
     return JSON.parse(localStorage.getItem(journal));
   },
@@ -96,7 +96,7 @@ var init = {
     }
   },
   verifyConfig: function(){
-    var setGhostValues = (localStorage.length == 0) ? true : false;
+    var setGhostValues = (localStorage.length < 3) ? true : false;
     
     if (!setGhostValues) {
       try {
@@ -106,6 +106,7 @@ var init = {
       } catch(err) {
         localStorage.clear();
         setGhostValues = true;
+        alert("Suas configurações foram resetadas");
       }
     }
     
@@ -116,6 +117,7 @@ var init = {
       if (destak != "object" || metro != "object" || version != "string") {
         setGhostValues = true;
       }
+      alert("Suas configurações foram resetadas");
     }
   
   
@@ -168,6 +170,12 @@ var refresh = {
 };
 
 $(window).load(function(){
+
+  init.updateVersion();
+  init.setInitialValues();
+  init.toggleLinks();
+  refresh.links();
+  
   $('select').change(function(){
     var t       = $(this);
     var journal = t.attr('name');
@@ -178,12 +186,6 @@ $(window).load(function(){
   $('#settings a[href=#home]').click(function(){
     refresh.links();
   });
-
-
-  init.updateVersion();
-  init.setInitialValues();
-  init.toggleLinks();
-  refresh.links();
   
   //$('#metro' ).attr('href', req.getLast('metro' , storage.getLocal('metro' )));
   //$('#destak').attr('href', req.getLast('destak', storage.getLocal('destak')));
