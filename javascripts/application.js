@@ -29,6 +29,7 @@ var jQT = $.jQTouch({
 });
 
 var storage = {
+  version: "3.0.0",
   get: function(journal) {
     return JSON.parse(localStorage.getItem(journal));
   },
@@ -95,21 +96,51 @@ var init = {
     }
   },
   verifyConfig: function(){
-    if (localStorage.length == 0){
+    var setGhostValues = (localStorage.length == 0) ? true : false;
+    
+    if (!setGhostValues) {
+      try {
+        storage.get('metro');
+        storage.get('destak');
+        storage.get('version');
+      } catch(err) {
+        localStorage.clear();
+        setGhostValues = true;
+      }
+    }
+    
+    if (!setGhostValues) {
+      var destak  = typeof(storage.get('destak' ));
+      var metro   = typeof(storage.get('metro'  ));
+      var version = typeof(storage.get('version'));
+      if (destak != "object" || metro != "object" || version != "string") {
+        setGhostValues = true;
+      }
+    }
+  
+  
+    if (setGhostValues){
       var oDef = { "url"      : "http://..."
                  , "local"    : "SaoPaulo"
                  , "timestamp": "20111216"
                  , "humandate": "16-12-2011"
-                 , "reqDate"  : "20110101"};
+                 , "reqDate"  : "20111217"};
       $('a[href=#settings]:first').click();
       storage.set('metro' , oDef);
       
       oDef.local = '21';
       storage.set('destak', oDef);
+      
+      storage.set("version", "0.0.0");
     }
   },
-  onLineStatus: function(){
-    return window.navigator.onLine;
+  updateVersion: function() {
+    var oldV = storage.get('version');
+    if (storage.version != oldV) {
+      alert('Yeah! Modificações foram feitas! Confira o que é novo no meu blog.');
+      storage.set("version", storage.version);
+    }
+    $('#version').text('Versão '+ storage.get('version'));
   },
   toggleLinks: function(){
     if (window.navigator.onLine) {
@@ -136,7 +167,7 @@ var refresh = {
   }
 };
 
-$(function(){
+$(window).load(function(){
   $('select').change(function(){
     var t       = $(this);
     var journal = t.attr('name');
@@ -148,6 +179,8 @@ $(function(){
     refresh.links();
   });
 
+
+  init.updateVersion();
   init.setInitialValues();
   init.toggleLinks();
   refresh.links();
