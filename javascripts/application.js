@@ -29,7 +29,7 @@ var jQT = $.jQTouch({
 });
 
 var storage = {
-  version: "3.0.1",
+  version: "3.0.2",
   get: function(journal) {
     return JSON.parse(localStorage.getItem(journal));
   },
@@ -75,7 +75,7 @@ var req = {
           backButton.show();
         },
         error: function(){
-          alert('Erro ao montar link');
+          alert('Falha ao montar link');
           backButton.show();
         }
       });
@@ -111,13 +111,20 @@ var init = {
     }
     
     if (!setGhostValues) {
-      var destak  = typeof(storage.get('destak' ));
-      var metro   = typeof(storage.get('metro'  ));
-      var version = typeof(storage.get('version'));
-      if (destak != "object" || metro != "object" || version != "string") {
+      var destak  = storage.get('destak' );
+      var metro   = storage.get('metro'  );
+      var version = storage.get('version');
+      if (typeof(destak) != "object" || typeof(metro) != "object" || typeof(version) != "string") {
         setGhostValues = true;
+        alert("Suas configurações foram resetadas");
       }
-      alert("Suas configurações foram resetadas");
+    }
+    
+    if (!setGhostValues) {
+      if (destak == null || metro == null || version == null) {
+        setGhostValues = true;
+        alert("Suas configurações foram resetadas");
+      }
     }
   
   
@@ -148,6 +155,7 @@ var init = {
     if (window.navigator.onLine) {
       $('.enabled').show();
       $('.disabled').hide();
+      return true;
     } else {
       $('.enabled').hide();
       $('.disabled').show();
@@ -171,10 +179,11 @@ var refresh = {
 
 $(window).load(function(){
 
-  init.updateVersion();
   init.setInitialValues();
-  init.toggleLinks();
-  refresh.links();
+  init.updateVersion();
+  if (init.toggleLinks()) {
+    refresh.links();
+  }
   
   $('select').change(function(){
     var t       = $(this);
@@ -187,8 +196,5 @@ $(window).load(function(){
     refresh.links();
   });
   
-  //$('#metro' ).attr('href', req.getLast('metro' , storage.getLocal('metro' )));
-  //$('#destak').attr('href', req.getLast('destak', storage.getLocal('destak')));
-
 });
 
