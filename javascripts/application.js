@@ -45,6 +45,7 @@
           var m = '' + (today.getMonth() + 1);
           var d = '' + today.getDate();
           d = (d.length == 1) ? '0' + d : d
+          m = (m.length == 1) ? '0' + m : m
           return y+m+d;
         }
       };
